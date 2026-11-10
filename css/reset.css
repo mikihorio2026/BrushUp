@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/* すべての要素で幅・高さの計算方法を統一する */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ブラウザごとの余白をリセットする */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* 画像下部にできる余白をなくし、親要素からはみ出させない */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* リンクの標準色と下線をリセットする */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* フォーム部品にもページのフォント設定を継承させる */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
