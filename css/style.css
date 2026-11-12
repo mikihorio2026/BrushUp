@@ -1,1 +1,311 @@
+/* 最初は検索結果画面を非表示にする */
+#resultScreen {
+  display: none;
+}
+
+/* イラスト自体をボタンに見せる */
+.ingredientButton {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  color: #4b3a2f;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* イラストの大きさ */
+.ingredientButton img {
+  width: clamp(40px, 8vw, 90px);
+  height: clamp(40px, 8vw, 90px);
+  object-fit: contain;
+
+  transition: transform 0.2s ease;
+}
+.ingredientButton.is-selected img {
+  filter: grayscale(1);
+}
+
+/* --------------------------------------------------------------------------------------背景 */
+/* 最初は表紙だけを表示する */
+#selectionScreen,
+#resultScreen {
+  display: none;
+}
+
+/* 表紙画面 */
+#landingScreen {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+/* 部屋の背景 */
+.roomBackground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 表紙の文字 */
+.landingText {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+
+
+/* --------------------------------------------------------------------------------------冷蔵庫 */
+/* 閉じた冷蔵庫のボタンと、開いた冷蔵庫を同じ位置に置く */
+.fridgeButton,
+.fridgeOpen {
+  position: absolute;
+  z-index: 1;
+height: min(68svh, 600px);
+width: auto;
+  left: 50%;
+  bottom: 6vh;
+  transform: translateX(-50%);
+}
+
+/* 閉じた冷蔵庫のボタンは、標準ボタンの見た目を消す */
+.fridgeButton {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fridgeClosed {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* --------------------------------------------------------------------------------------選択画面 */
+
+/* 食材選択画面 */
+#selectionScreen {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* 選択画面の部屋背景は一番後ろに置く */
+#selectionScreen .roomBackground {
+  z-index: 0;
+}
+
+/* 開いた冷蔵庫 */
+.fridgeOpen {
+  position: absolute;
+  z-index: 1;
+  width: min(90vw, 520px);
+  left: 50%;
+  bottom: 6vh;
+  transform: translateX(-50%);
+}
+
+
+/* 食材背景と下部パネルに共通する見た目 */
+.ingredientsBackdrop,
+.selectionPanel {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 4px 16px rgba(75, 58, 47, 0.14);
+}
+
+/* 食材エリアと下部パネルをまとめて画面中央に置く */
+.selectionContent {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 470px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 選択中の食材と検索ボタンを表示する下部パネル */
+.selectionPanel {
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.selectionPanel p {
+  margin: 0 0 8px;
+}
+
+#searchButton,
+#resetButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #d96c4d;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------------------検索結果 */
+/* 結果画面全体 */
+#resultScreen {
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 48px 24px;
+  background: #fffaf4;
+}
+
+#resultScreen > h2 {
+  max-width: 920px;
+  margin: 0 auto 24px;
+  text-align: center;
+  color: #4b3a2f;
+}
+
+/* 1〜3位それぞれの横長カード */
+.rankCard {
+  max-width: 640px;
+  min-height: 300px;
+  box-sizing: border-box;
+  margin: 0 auto 24px;
+  padding: 32px 46px;
+  border: 3px solid #f0f0f0;
+  border-radius: 32px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 2px 0 rgba(75, 58, 47, 0.04);
+}
+
+.rankCardContent {
+  flex: 1;
+}
+
+.rankTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rankIcon {
+  width: 52px;
+  height: 88px;
+  object-fit: contain;
+}
+
+.rankTitle h3 {
+  margin: 0;
+  font-size: clamp(28px, 2vw, 46px);
+  font-weight: 500;
+}
+
+.rankNumber {
+  margin-right: 16px;
+  font-weight: 700;
+}
+
+.rankIngredients {
+  margin-top: 42px;
+}
+
+.rankIngredients p {
+  margin: 12px 0;
+  font-size: clamp(14px, 1.5vw, 22px);
+}
+
+.potImage {
+  width: min(34vw, 200px);
+  height: auto;
+  object-fit: contain;
+}
+
+#resetButton {
+  display: block;
+  margin: 32px auto 0;
+}
+
+@media (max-width: 620px) {
+  #resultScreen {
+    padding: 32px 16px;
+  }
+
+  .rankCard {
+    min-height: 0;
+    padding: 24px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .rankIngredients {
+    margin-top: 28px;
+  }
+
+  .potImage {
+    width: min(72vw, 300px);
+    align-self: center;
+  }
+}
+
+/* --------------------------------------------------------------------------------------食材 */
+/* 食材イラストの後ろに置く半透明の白い背景 */
+.ingredientsBackdrop {
+  position: relative;
+  height: 520px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 食材を3段に分けてFlex配置する */
+.ingredientShelf {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+/* 検索結果で使う食材ラベル */
+.ingredientLabel {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 3px 7px;
+  border-radius: 7px;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+/* 冷蔵庫にあるので使える食材：薄い緑 */
+.ingredientLabel--available {
+  background: #dcf4c8;
+}
+
+/* 買い足す食材：薄い黄色 */
+.ingredientLabel--missing {
+  background: #fff5bf;
+}
 
