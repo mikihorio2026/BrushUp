@@ -4,15 +4,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>今日のばんごはん</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dinner.css">
+    <title>きょうは鍋にしよう</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    
+    <main>
+        <!-- 表紙 -->
+        <section id="landingScreen">
+            <img class="roomBackground" src="img/room-background.png" alt="">
+            <div class="landingText">
+                <h1>きょうは鍋にしよう</h1>
+                <p>冷蔵庫にある食材を選んでください。</p>
+            </div>
+            <button id="openFridgeButton" class="fridgeButton" type="button">
+                <img class="fridgeClosed" src="img/fridge-closed.png" alt="冷蔵庫を開く">
+            </button>
+
+
+
+        </section>
+        <!-- 選択画面 -->
+        <section id="selectionScreen">
+            <img class="roomBackground" src="img/room-background.png" alt="">
+            <img class="fridgeOpen" src="img/fridge-open.png" alt="開いた冷蔵庫">
+
+            <div class="selectionContent">
+
+                <div class="ingredientsBackdrop">
+                    <section class="ingredientShelf shelfTop">
+                        <button id="porkButton" class="ingredientButton" type="button">
+                            <img src="img/pork.png" alt="豚肉">
+                        </button>
+                        <button id="chickenButton" class="ingredientButton" type="button">
+                            <img src="img/chicken.png" alt="鶏肉">
+                        </button>
+                        <button id="fishButton" class="ingredientButton" type="button">
+                            <img src="img/fish.png" alt="魚">
+                        </button>
+                    </section>
+
+                    <section class="ingredientShelf shelfMiddle">
+                        <button id="cabbageButton" class="ingredientButton" type="button">
+                            <img src="img/cabbage.png" alt="白菜">
+                        </button>
+                        <button id="greenOnionButton" class="ingredientButton" type="button">
+                            <img src="img/green-onion.png" alt="長ねぎ">
+                        </button>
+                        <button id="mushroomButton" class="ingredientButton" type="button">
+                            <img src="img/mushroom.png" alt="きのこ">
+                        </button>
+                        <button id="carrotButton" class="ingredientButton" type="button">
+                            <img src="img/carrot.png" alt="にんじん">
+                        </button>
+                    </section>
+
+                    <section class="ingredientShelf shelfBottom">
+                        <button id="tofuButton" class="ingredientButton" type="button">
+                            <img src="img/tofu.png" alt="豆腐">
+                        </button>
+                        <button id="kimchiButton" class="ingredientButton" type="button">
+                            <img src="img/kimchi.png" alt="キムチ">
+                        </button>
+                        <button id="soyMilkButton" class="ingredientButton" type="button">
+                            <img src="img/soy-milk.png" alt="豆乳">
+                        </button>
+                        <button id="misoButton" class="ingredientButton" type="button">
+                            <img src="img/miso.png" alt="みそ">
+                        </button>
+                    </section>
+                </div>
+
+                <div class="selectionPanel">
+                    <p>選択中：<span id="selectedCount">0</span>個</p>
+                    <p>選んだ食材：<span id="selectedItemsText">まだ選ばれていません</span></p>
+                    <button id="searchButton" type="button">おすすめの鍋を見る</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- 結果 -->
+        <section id="resultScreen">
+            <!-- <h2>おすすめの鍋</h2> -->
+
+            <article class="rankCard">
+                <div class="rankCardContent">
+                    <div class="rankTitle">
+                        <img class="rankIcon" src="img/rank1.png" alt="1位">
+                        <h3><span class="rankNumber">1位</span> <span id="recipeNameText">まだ検索していません</span></h3>
+                    </div>
+                    <div class="rankIngredients">
+                        <p>冷蔵庫から使う食材 <span id="matchCountText">0</span></p>
+                        <p>買ってくる食材 <span id="missingItemsText">まだ検索していません</span></p>
+                    </div>
+                </div>
+                <img id="recipeImage" class="potImage" src="img/pot-kimchi.png" alt="おすすめの鍋">
+            </article>
+
+            <article class="rankCard">
+                <div class="rankCardContent">
+                    <div class="rankTitle">
+                        <img class="rankIcon" src="img/rank2.png" alt="2位">
+                        <h3><span class="rankNumber">2位</span> <span id="secondRecipeNameText">まだ検索していません</span></h3>
+                    </div>
+                    <div class="rankIngredients">
+                        <p>冷蔵庫から使う食材 <span id="secondMatchCountText">0</span></p>
+                        <p>買ってくる食材 <span id="secondMissingItemsText">まだ検索していません</span></p>
+                    </div>
+                </div>
+                <img id="secondRecipeImage" class="potImage" src="img/pot-yose.png" alt="おすすめの鍋">
+            </article>
+
+            <article class="rankCard">
+                <div class="rankCardContent">
+                    <div class="rankTitle">
+                        <img class="rankIcon" src="img/rank3.png" alt="3位">
+                        <h3><span class="rankNumber">3位</span> <span id="thirdRecipeNameText">まだ検索していません</span></h3>
+                    </div>
+                    <div class="rankIngredients">
+                        <p>冷蔵庫から使う食材 <span id="thirdMatchCountText">0</span></p>
+                        <p>買ってくる食材 <span id="thirdMissingItemsText">まだ検索していません</span></p>
+                    </div>
+                </div>
+                <img id="thirdRecipeImage" class="potImage" src="img/pot-tonyu.png" alt="おすすめの鍋">
+            </article>
+
+            <button id="resetButton" type="button">リセット</button>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
