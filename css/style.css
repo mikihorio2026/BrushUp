@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500;700&display=swap');
-
+body {
+  margin: 0;
+}
 /* 最初は検索結果画面を非表示にする */
 #resultScreen {
   display: none;
@@ -174,8 +176,8 @@ width: auto;
 .fridgeOpen {
   position: absolute;
   z-index: 1;
-  width: min(90vw, 520px);
-  left: 50%;
+  width: auto;
+  left: calc(50% + min(13.3svh, 118px));
   bottom: 6vh;
   transform: translateX(-50%);
 }
@@ -187,7 +189,7 @@ width: auto;
   width: 100%;
   box-sizing: border-box;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 16px rgba(75, 58, 47, 0.14);
 }
 
@@ -371,4 +373,33 @@ width: auto;
 .ingredientLabel--missing {
   background: #fff5bf;
 }
+/* --------------------------------------------------------------------SP */
+@media (max-width: 620px) {
+  .selectionContent {
+    width: min(92vw, 470px);
+  }
 
+  .ingredientsBackdrop {
+    height: auto;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 4px;
+    padding: 16px;
+  }
+
+  .ingredientShelf {
+    display: contents;
+  }
+
+  .ingredientButton {
+    justify-self: center;
+    align-self: center;
+  }
+
+  .ingredientButton img {
+    width: clamp(48px, 14vw, 64px);
+    height: clamp(48px, 14vw, 64px);
+  }
+  
+}
