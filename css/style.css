@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500;700&display=swap');
+
 /* 最初は検索結果画面を非表示にする */
 #resultScreen {
   display: none;
@@ -59,12 +61,73 @@
 
 /* 表紙の文字 */
 .landingText {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  left: 50%;
+  width: min(90%, 500px);
+  transform: translateX(-50%);
   text-align: center;
+  color: #4b3a2f;
+}
+.landingText h1 {
+  font-family: "Kiwi Maru", serif;
+  font-size: clamp(32px, 5vw, 54px);
+    margin: 0 auto;
+}
+.landingText p {
+  font-size: 18px;
+  margin: 18px auto 18px;
+}
+.titleAnimation span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: titleLetter 0.5s ease-out forwards;
 }
 
+.titleAnimation span:nth-child(1) {
+  animation-delay: 0s;
+}
 
+.titleAnimation span:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.titleAnimation span:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.titleAnimation span:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.titleAnimation span:nth-child(5) {
+  animation-delay: 0.48s;
+}
+
+.titleAnimation span:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.titleAnimation span:nth-child(7) {
+  animation-delay: 0.72s;
+}
+
+.titleAnimation span:nth-child(8) {
+  animation-delay: 0.84s;
+}
+
+.titleAnimation span:nth-child(9) {
+  animation-delay: 0.96s;
+}
+
+@keyframes titleLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* --------------------------------------------------------------------------------------冷蔵庫 */
 /* 閉じた冷蔵庫のボタンと、開いた冷蔵庫を同じ位置に置く */
